@@ -1,5 +1,5 @@
 
-# Mini Project – COMPSCI 326 Web Programming
+# Mini Class Project for my Web Programming Course!
 # 🍵 Matcha Tasting Log
 
 **Due:** Aug 18, 2025 11:59 PM EDT  
