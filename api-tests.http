@@ -1,0 +1,159 @@
+### Matcha Tasting Log API Tests
+### Backend: NestJS + TypeScript + PostgreSQL
+### Testing all CRUD operations as required by README
+
+### Variables
+@baseUrl = http://localhost:3000/api
+@contentType = application/json
+
+###############################################
+### MATCHA ENDPOINTS (Entity 1) - CRUD TESTS
+###############################################
+
+### 1. CREATE Matcha (POST)
+POST {{baseUrl}}/matcha
+Content-Type: {{contentType}}
+
+{
+  "name": "Premium Ceremonial Matcha",
+  "origin": "Uji Japan",
+  "brand": "Ippodo Tea",
+  "grade": "Ceremonial",
+  "price": 45.99,
+  "description": "High-quality ceremonial grade matcha from the prestigious Uji region. Smooth, sweet, and vibrant green."
+}
+
+### 2. READ All Matcha (GET)
+GET {{baseUrl}}/matcha
+
+### 3. READ Matcha by ID (GET)
+GET {{baseUrl}}/matcha/1
+
+### 4. UPDATE Matcha (PUT)
+PUT {{baseUrl}}/matcha/1
+Content-Type: {{contentType}}
+
+{
+  "name": "Premium Ceremonial Matcha - Updated",
+  "origin": "Uji Japan",
+  "brand": "Ippodo Tea",
+  "grade": "Ceremonial",
+  "price": 49.99,
+  "description": "Updated description for high-quality ceremonial grade matcha."
+}
+
+### 5. DELETE Matcha (DELETE)
+DELETE {{baseUrl}}/matcha/1
+
+########################################################
+### TASTING NOTES ENDPOINTS (Entity 2) - CRUD TESTS
+########################################################
+
+### 6. CREATE Tasting Note (POST)
+POST {{baseUrl}}/tasting-notes
+Content-Type: {{contentType}}
+
+{
+  "matchaId": 1,
+  "flavorRating": 8,
+  "aromaRating": 7,
+  "textureRating": 9,
+  "overallRating": 8,
+  "notes": "Excellent ceremonial matcha with sweet finish and smooth texture. Perfect for traditional tea ceremony.",
+  "dateOfTasting": "2025-08-14",
+  "brewingTemperature": 70,
+  "brewingMethod": "Traditional whisking"
+}
+
+### 7. READ All Tasting Notes (GET)
+GET {{baseUrl}}/tasting-notes
+
+### 8. READ Tasting Note by ID (GET)
+GET {{baseUrl}}/tasting-notes/1
+
+### 9. READ Tasting Notes by Matcha ID (GET)
+GET {{baseUrl}}/tasting-notes/matcha/1
+
+### 10. UPDATE Tasting Note (PUT)
+PUT {{baseUrl}}/tasting-notes/1
+Content-Type: {{contentType}}
+
+{
+  "matchaId": 1,
+  "flavorRating": 9,
+  "aromaRating": 8,
+  "textureRating": 9,
+  "overallRating": 9,
+  "notes": "Updated review: Outstanding ceremonial matcha with complex flavor profile.",
+  "dateOfTasting": "2025-08-14",
+  "brewingTemperature": 65,
+  "brewingMethod": "Traditional whisking"
+}
+
+### 11. DELETE Tasting Note (DELETE)
+DELETE {{baseUrl}}/tasting-notes/1
+
+###############################################
+### ADDITIONAL SAMPLE DATA FOR TESTING
+###############################################
+
+### CREATE Additional Matcha Samples
+POST {{baseUrl}}/matcha
+Content-Type: {{contentType}}
+
+{
+  "name": "Organic Culinary Matcha",
+  "origin": "Kagoshima Japan",
+  "brand": "Jade Leaf",
+  "grade": "Culinary",
+  "price": 24.99,
+  "description": "High-quality organic matcha perfect for lattes, smoothies, and baking."
+}
+
+###
+POST {{baseUrl}}/matcha
+Content-Type: {{contentType}}
+
+{
+  "name": "Competition Grade Matcha",
+  "origin": "Kyoto Japan",
+  "brand": "Marukyu Koyamaen",
+  "grade": "Competition",
+  "price": 89.99,
+  "description": "Premium competition-grade matcha used in tea ceremony competitions."
+}
+
+### CREATE Additional Tasting Notes
+POST {{baseUrl}}/tasting-notes
+Content-Type: {{contentType}}
+
+{
+  "matchaId": 2,
+  "flavorRating": 6,
+  "aromaRating": 5,
+  "textureRating": 7,
+  "overallRating": 6,
+  "notes": "Good for culinary use but lacks the complexity of ceremonial grade.",
+  "dateOfTasting": "2025-08-13",
+  "brewingTemperature": 75,
+  "brewingMethod": "Matcha latte"
+}
+
+###
+POST {{baseUrl}}/tasting-notes
+Content-Type: {{contentType}}
+
+{
+  "matchaId": 3,
+  "flavorRating": 10,
+  "aromaRating": 10,
+  "textureRating": 10,
+  "overallRating": 10,
+  "notes": "Absolutely perfect competition-grade matcha. Unmatched umami and sweetness.",
+  "dateOfTasting": "2025-08-12",
+  "brewingTemperature": 60,
+  "brewingMethod": "Tea ceremony"
+}
+
+### HEALTH CHECK (Optional)
+GET {{baseUrl}}/health

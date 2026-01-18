@@ -1,0 +1,13 @@
+{
+  "name": "matcha-log",
+  "version": "1.0.0",
+  "description": "Full-stack matcha tasting log application",
+  "scripts": {
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run start:dev",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "keywords": ["matcha", "tasting", "react", "nestjs", "typescript"],
+  "author": "CS326 Student",
+  "license": "MIT"
+}
